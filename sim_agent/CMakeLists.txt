@@ -18,6 +18,8 @@ include(${CMAKE_SOURCE_DIR}/cmake/drla.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/spdlog.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/nlohmann_json.cmake)
 
+set(CMAKE_PREFIX_PATH "D:/ProgramData/opencv/build/x64/vc16/lib")
+
 set(THREADS_PREFER_PTHREAD_FLAG ON)  # Set -pthreads
 find_package(Threads REQUIRED)
 find_package(Torch REQUIRED)

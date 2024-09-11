@@ -45,8 +45,9 @@ inline bool operator!=(const Position& a, const Position& b)
 	return !(a == b);
 }
 
-template <template <typename> class C, typename T>
-inline bool contains(const C<T>& container, const T& value)
+//template <template <typename> class C, typename T>
+template <class C, typename T>
+inline bool contains(const C& container, const T& value)
 {
 	return std::find(container.begin(), container.end(), value) != container.end();
 }

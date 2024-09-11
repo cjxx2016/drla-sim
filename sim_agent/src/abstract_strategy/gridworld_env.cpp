@@ -198,8 +198,8 @@ void GridWorld::process_trigger(const Trigger& trigger)
 		switch (condition)
 		{
 			using Type = TriggerConditionType;
-			case Type::kPlayer1: condition_matched &= contains(tile.players, 0U); break;
-			case Type::kPlayer2: condition_matched &= contains(tile.players, 1U); break;
+			case Type::kPlayer1: condition_matched &= sim::contains(tile.players, 0U); break;
+			case Type::kPlayer2: condition_matched &= sim::contains(tile.players, 1U); break;
 			case Type::kOpponent: condition_matched &= is_opponent(tile.players, state_.player); break;
 			case Type::kOnEnterTile: condition_matched &= entered_tile_pos_ == p; break;
 			case Type::kOnLeaveTile: condition_matched &= exited_tile_pos_ == p; break;
@@ -318,7 +318,7 @@ drla::EnvStepData GridWorld::reset(const drla::State& initial_state)
 		{
 			auto& tile = state_.grid[p];
 			auto pos = decode_position(p, config_.width);
-			if (contains(types->second, tile.type))
+			if (sim::contains(types->second, tile.type))
 			{
 				switch (tile.type)
 				{
